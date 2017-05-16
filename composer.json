@@ -12,13 +12,17 @@
     "scripts": {
         "test": "./vendor/phpunit/phpunit/phpunit"
     },
-    "require": {},
+    "require": {
+        "shrikeh/teapot": "^2.3",
+        "ramsey/uuid": "^3.6"
+    },
     "autoload": {
         "psr-4": {
             "Minioak\\MyHermes\\": "src"
         }
     },
     "require-dev": {
+        "guzzlehttp/guzzle": "^6.2",
         "phpunit/phpunit": "^6.1"
     }
 }
