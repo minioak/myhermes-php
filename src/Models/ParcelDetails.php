@@ -2,7 +2,9 @@
 
 namespace Minioak\MyHermes\Models;
 
-class ParcelDetails
+use \JsonSerializable;
+
+class ParcelDetails implements JsonSerializable
 {
     protected $weightKg;
     protected $itemDescription;
@@ -23,5 +25,15 @@ class ParcelDetails
     public function __set($property, $value)
     {
         $this->$property = $value;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'weightKg' => $this->weightKg,
+            'itemDescription' => $this->itemDescription,
+            'estimatedParcelValuePounds' => $this->estimatedParcelValuePounds,
+            'compensationRequiredPounds' => $this->compensationRequiredPounds
+        ];
     }
 }

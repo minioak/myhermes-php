@@ -2,7 +2,9 @@
 
 namespace Minioak\MyHermes\Models;
 
-class Parcel
+use \JsonSerializable;
+
+class Parcel implements JsonSerializable
 {
     protected $clientUID;
     protected $parcelDetails;
@@ -23,5 +25,14 @@ class Parcel
     public function __set($property, $value)
     {
         $this->$property = $value;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'clientUID' => $this->clientUID,
+            'parcelDetails' => $this->parcelDetails,
+            'deliveryDetails' => $this->deliveryDetails
+        ];
     }
 }

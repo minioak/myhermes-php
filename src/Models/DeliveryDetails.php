@@ -2,7 +2,9 @@
 
 namespace Minioak\MyHermes\Models;
 
-class DeliveryDetails
+use \JsonSerializable;
+
+class DeliveryDetails implements JsonSerializable
 {
     protected $deliveryAddress;
     protected $firstName;
@@ -13,7 +15,7 @@ class DeliveryDetails
     protected $deliveryInstructions = '';
     protected $deliverySafePlace = '';
 
-    public function __construct($firstName, $lastName, $email)
+    public function __construct($firstName, $lastName, $email = '')
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
@@ -28,5 +30,19 @@ class DeliveryDetails
     public function __set($property, $value)
     {
         $this->$property = $value;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'deliveryAddress' => $this->deliveryAddress,
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName,
+            'email' => $this->email,
+            'telephone' => $this->telephone,
+            'signatureRequired' => $this->signatureRequired,
+            'deliveryInstructions' => $this->deliveryInstructions,
+            'deliverySafePlace' => $this->deliverySafePlace
+        ];
     }
 }

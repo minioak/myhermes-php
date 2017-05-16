@@ -19,12 +19,12 @@ class ParcelSummary
 
     public function setCreated()
     {
-        $this->status = PARCELSUMMARY_STATUS_CREATED;
+        $this->status = self::PARCELSUMMARY_STATUS_CREATED;
     }
 
     public function setInvalid()
     {
-        $this->status = PARCELSUMMARY_STATUS_INVALID;
+        $this->status = self::PARCELSUMMARY_STATUS_INVALID;
     }
 
     public function __get($property)
