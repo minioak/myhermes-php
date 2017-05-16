@@ -21,7 +21,7 @@ final class MyHermes {
 	{
 		$label = new LabelsRequest($barcode, $format);
 
-		return $label->png()->thermalFormat()->binary()->execute();
+		return $label->png()->thermalFormat()->execute();
 	}
 
 }
