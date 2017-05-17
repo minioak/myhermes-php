@@ -7,10 +7,20 @@ use Minioak\MyHermes\Requests\LabelsRequest;
 use Minioak\MyHermes\Models\Factory;
 
 final class MyHermes {
+
+	protected $token;
+
+	public function __construct($token) 
+	{
+		$this->token = $token;
+	}
 	
 	public function parcels($parcelData)
 	{
-		$parcels = new ParcelsRequest();
+		$parcels = new ParcelsRequest($this->token);
+
+		var_dump($parcels);
+		exit();
 
 		$data = Factory::createParcel($parcelData);
 
@@ -19,7 +29,7 @@ final class MyHermes {
 
 	public function label($barcode, $format = '')
 	{
-		$label = new LabelsRequest($barcode, $format);
+		$label = new LabelsRequest($this->token, $barcode, $format);
 
 		return $label->png()->thermalFormat()->execute();
 	}
