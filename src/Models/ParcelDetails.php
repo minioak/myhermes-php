@@ -8,6 +8,7 @@ class ParcelDetails implements JsonSerializable
 {
     protected $weightKg;
     protected $itemDescription;
+    protected $deliveryReference;
     protected $estimatedParcelValuePounds = 0;
     protected $compensationRequiredPounds = 0;
 
