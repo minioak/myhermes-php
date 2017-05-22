@@ -21,7 +21,7 @@ class ParcelsRequest extends Request
     	$hasErrors = false;
 
     	if ($response->getStatusCode() == 200) {
-    		$body = json_decode($response->getBody());
+    		$body = json_decode($response->getBody()->getContents());
     		if ($summary = $body->parcelSummaries) {
     			foreach ($summary as $parcel) {
     				$p = new ParcelSummary($parcel->clientUID);

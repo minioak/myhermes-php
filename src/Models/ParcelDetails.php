@@ -31,7 +31,7 @@ class ParcelDetails implements JsonSerializable
     {
         return [
             'weightKg' => $this->weightKg,
-            'itemDescription' => $this->itemDescription,
+            'itemDescription' => substr($this->itemDescription, 0, 32),
             'estimatedParcelValuePounds' => $this->estimatedParcelValuePounds,
             'compensationRequiredPounds' => $this->compensationRequiredPounds
         ];
