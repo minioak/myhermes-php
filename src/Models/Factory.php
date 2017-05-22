@@ -14,6 +14,7 @@ class Factory
             $parcelDetails = new ParcelDetails($data['weight'], $data['description']);
             $parcelDetails->estimatedParcelValuePounds = $data['value'] ?? 0;
             $parcelDetails->compensationRequiredPounds = $data['compensation'] ?? 0;
+            $parcelDetails->deliveryReference = $data['reference'] ?? '';
 
 
             $deliveryDetails = new DeliveryDetails($data['firstName'], $data['lastName']);
