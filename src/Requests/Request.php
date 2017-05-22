@@ -52,7 +52,7 @@ abstract class Request
         $options['headers'] = [
             'Content-Type' => $this->requestType,
             'Accept' => $this->getResponseType(),
-            'Authorization' => 'Bearer '.$token
+            'Authorization' => 'Bearer '.$this->token
         ];
 
         $response = $this->client->request($this->method, $this->getUrl(), $options);

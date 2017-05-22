@@ -12,6 +12,9 @@ class Factory
 
         foreach ($parcelsArray as $data) {
             $parcelDetails = new ParcelDetails($data['weight'], $data['description']);
+            $parcelDetails->estimatedParcelValuePounds = $data['value'] ?? 0;
+            $parcelDetails->compensationRequiredPounds = $data['compensation'] ?? 0;
+
 
             $deliveryDetails = new DeliveryDetails($data['firstName'], $data['lastName']);
 
@@ -21,6 +24,9 @@ class Factory
             $deliveryAddress->line3 = $data['addressLine3'] ?? null;
             $deliveryAddress->line4 = $data['addressLine4'] ?? null;
             $deliveryDetails->deliveryAddress = $deliveryAddress;
+
+            $deliveryDetails->signatureRequired = $data['signature'] ?? false;
+            $deliveryDetails->email = $data['email'] ?? '';
 
             $parcels[] = new Parcel(Uuid::uuid4()->toString(), $parcelDetails, $deliveryDetails);
         }

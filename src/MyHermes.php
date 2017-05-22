@@ -19,9 +19,6 @@ final class MyHermes {
 	{
 		$parcels = new ParcelsRequest($this->token);
 
-		var_dump($parcels);
-		exit();
-
 		$data = Factory::createParcel($parcelData);
 
 		return $parcels->execute(['parcels' => $data]);
