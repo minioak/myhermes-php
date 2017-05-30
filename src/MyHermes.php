@@ -10,14 +10,16 @@ final class MyHermes {
 
 	protected $token;
 
-	public function __construct($token) 
+	protected $sandbox = true;
+
+	public function __construct($token, $sandbox = true) 
 	{
 		$this->token = $token;
 	}
 	
 	public function parcels($parcelData)
 	{
-		$parcels = new ParcelsRequest($this->token);
+		$parcels = new ParcelsRequest($this->token, $this->sandbox);
 
 		$data = Factory::createParcel($parcelData);
 
@@ -26,7 +28,7 @@ final class MyHermes {
 
 	public function label($barcode, $format = '')
 	{
-		$label = new LabelsRequest($this->token, $barcode, $format);
+		$label = new LabelsRequest($this->token, $this->sandbox, $barcode, $format);
 
 		return $label->png()->thermalFormat()->execute();
 	}

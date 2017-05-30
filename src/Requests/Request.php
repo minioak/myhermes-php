@@ -22,10 +22,10 @@ abstract class Request
 
     protected $token = false;
 
-    public function __construct($token)
+    public function __construct($token, $sandbox = true)
     {
         $this->token = $token;
-        $this->config = new Config();
+        $this->config = new Config($sandbox);
         $this->client = new Client([
             'base_uri' => $this->config->getBaseUrl()
         ]);
