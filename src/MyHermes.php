@@ -15,6 +15,7 @@ final class MyHermes {
 	public function __construct($token, $sandbox = true) 
 	{
 		$this->token = $token;
+		$this->sandbox = $sandbox;
 	}
 	
 	public function parcels($parcelData)
