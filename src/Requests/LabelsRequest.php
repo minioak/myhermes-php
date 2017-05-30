@@ -30,9 +30,9 @@ class LabelsRequest extends Request
 
     protected $method = 'GET';
 
-    public function __construct($token, $barcode, $format)
+    public function __construct($token, $sandbox, $barcode, $format)
     {
-        parent::__construct($token);
+        parent::__construct($token, $sandbox);
         $this->barcode = $barcode;
         $this->format = $format;
     }
