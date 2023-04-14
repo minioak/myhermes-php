@@ -14,8 +14,8 @@
     },
     "require": {
         "shrikeh/teapot": "^2.3",
-        "ramsey/uuid": "^3.6",
-        "guzzlehttp/guzzle": "^6.2"
+        "ramsey/uuid": "^4.7",
+        "guzzlehttp/guzzle": "^7.5"
     },
     "autoload": {
         "psr-4": {
